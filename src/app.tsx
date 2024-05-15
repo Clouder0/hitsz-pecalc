@@ -202,12 +202,23 @@ const Results = () => {
 	);
 };
 
+const Header = () => {
+	return (
+		<div class="container ml-4 mt-2">
+			<p>
+				Authored By Clouder. Check on{" "}
+				<a href="https://github.com/clouder0/hitsz-pecalc">GitHub</a>.
+			</p>
+		</div>
+	);
+};
+
 const Main = () => {
 	return (
 		<main class="container">
-			<span class="icon" />
 			<div class="panel is-primary">
 				<p class="panel-heading">体测分数计算器</p>
+				<Header />
 				<Preface />
 				<TestPieces />
 				<div class="panel-block">
