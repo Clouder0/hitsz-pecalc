@@ -213,6 +213,7 @@ const jumpTest = {
 	weight: 0.1,
 	grade: genGrader(maleJumpDict, femaleJumpDict),
 };
+
 const longrunTest = {
 	name: "耐力跑",
 	icon: () => <FaSolidBook />,
