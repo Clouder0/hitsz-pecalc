@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "vinxi dev",
     "build": "vinxi build",
-    "start": "vinxi start"
+    "start": "vinxi start",
+    "check": "biome check src --apply"
   },
   "dependencies": {
     "@fortawesome/free-regular-svg-icons": "^6.5.2",
