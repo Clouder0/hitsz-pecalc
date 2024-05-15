@@ -1,0 +1,27 @@
+{
+  "name": "example-bare",
+  "type": "module",
+  "scripts": {
+    "dev": "vinxi dev",
+    "build": "vinxi build",
+    "start": "vinxi start"
+  },
+  "dependencies": {
+    "@fortawesome/free-regular-svg-icons": "^6.5.2",
+    "@solidjs/meta": "^0.29.3",
+    "@solidjs/start": "^1.0.0-rc.1",
+    "bulma": "^1.0.0",
+    "solid-icons": "^1.1.0",
+    "solid-js": "^1.8.17",
+    "vinxi": "^0.3.11"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.7.3"
+  },
+  "trustedDependencies": [
+    "@biomejs/biome"
+  ]
+}
