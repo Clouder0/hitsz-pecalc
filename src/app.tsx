@@ -21,13 +21,14 @@ function ProgressBar(props: { val: Accessor<number> }) {
 					"show-value": true,
 					"is-danger": danger(),
 					"is-success": !danger(),
+					"m-0": true,
 				}}
 				value={props.val()}
 				max="100"
 			>
 				{props.val()}
 			</progress>
-			<p class="progress-value">{props.val()}</p>
+			<p class="progress-value m-0">{props.val()}</p>
 		</div>
 	);
 }
@@ -165,27 +166,17 @@ type ResultType = {
 };
 
 const ResultPiece = (item: ResultType) => {
-	const danger = createMemo(() => item.getGrade() < 60);
 	return (
-		<div class="panel-block">
+		<div class="panel-block columns m-0 p-1 pr-3">
 			<label
 				style="text-wrap: nowrap"
 				class="column is-4-mobile is-2-tablet has-text-right is-size-6"
 			>
 				{item.name}：
 			</label>
-			<progress
-				classList={{
-					progress: true,
-					"show-value": true,
-					"is-danger": danger(),
-					"is-success": !danger(),
-				}}
-				value={item.getGrade()}
-				max="100"
-			>
-				{item.getGrade()}
-			</progress>
+			<div class="column">
+				<ProgressBar val={item.getGrade} />
+			</div>
 		</div>
 	);
 };
