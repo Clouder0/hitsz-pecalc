@@ -56,7 +56,8 @@ function TestPiece(props: {
 const TestPieces = () => {
   const ctx = useContext(myContext);
   if (!ctx) throw Error();
-  const { reactive_regular_tests, reactive_getup_test, reactive_pullup_test } = ctx;
+  const { reactive_regular_tests, reactive_getup_test, reactive_pullup_test } =
+    ctx;
   return (
     <div>
       <For each={reactive_regular_tests}>

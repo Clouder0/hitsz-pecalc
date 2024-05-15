@@ -1,32 +1,12 @@
-# SolidStart
+# HITSZ-pecalc
 
-Everything you need to build a Solid project, powered by [`solid-start`](https://start.solidjs.com);
+HITSZ 体测分数计算器。由 Solidjs 强力驱动(?)，旧版本使用 Flutter，加载较为缓慢。本版本加载量小、性能优异，纯前端实现。
 
-## Creating a project
+使用 Bun 作为 Nodejs 运行时。
 
-```bash
-# create a new project in the current directory
-npm init solid@latest
-
-# create a new project in my-app
-npm init solid@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+开发运行：
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+bun install
+bun dev
 ```
-
-## Building
-
-Solid apps are built with _presets_, which optimise your project for deployment to different environments.
-
-By default, `npm run build` will generate a Node app that you can run with `npm start`. To use a different preset, add it to the `devDependencies` in `package.json` and specify in your `app.config.js`.
-
-## This project was created with the [Solid CLI](https://solid-cli.netlify.app)

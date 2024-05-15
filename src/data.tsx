@@ -6,9 +6,21 @@ import {
   createContext,
   createMemo,
   createSignal,
-  useContext,
 } from "solid-js";
-import { femaleJumpDict, femaleLongRunDict, femaleShortrunDict, femaleSpecDict, femaleStretchDict, femaleVitalDict, maleJumpDict, maleLongRunDict, maleShortrunDict, maleSpecDict, maleStretchDict, maleVitalDict } from "./criteria";
+import {
+  femaleJumpDict,
+  femaleLongRunDict,
+  femaleShortrunDict,
+  femaleSpecDict,
+  femaleStretchDict,
+  femaleVitalDict,
+  maleJumpDict,
+  maleLongRunDict,
+  maleShortrunDict,
+  maleSpecDict,
+  maleStretchDict,
+  maleVitalDict,
+} from "./criteria";
 
 export type State<T> = {
   get: Accessor<T>;
@@ -18,7 +30,8 @@ export type State<T> = {
 export function createState<T>(): State<T | undefined>;
 export function createState<T>(value: T): State<T>;
 export function createState<T>(value?: T) {
-  const [get, set] = value !== undefined ? createSignal<T>(value) : createSignal<T>();
+  const [get, set] =
+    value !== undefined ? createSignal<T>(value) : createSignal<T>();
   return { get, set };
 }
 
@@ -41,7 +54,9 @@ function initContext() {
     return {
       ref: x,
       input: state,
-      getGrade: createMemo(() => x.grade(state.get(), gender.get(), select_grade.get())),
+      getGrade: createMemo(() =>
+        x.grade(state.get(), gender.get(), select_grade.get())
+      ),
     };
   };
   const reactive_regular_tests = regular_tests.map(decorate_test);
@@ -77,12 +92,12 @@ function initContext() {
     }),
     weight: 0.15,
   };
-  
-  const test2result = (x: typeof reactive_regular_tests[0]) => ({
-    name:x.ref.name,
-    weight:x.ref.weight,
-    getGrade: x.getGrade
-  })
+
+  const test2result = (x: (typeof reactive_regular_tests)[0]) => ({
+    name: x.ref.name,
+    weight: x.ref.weight,
+    getGrade: x.getGrade,
+  });
   const test_results = [bmi_result].concat(
     reactive_regular_tests
       .filter((x) => x.ref.name !== "身高" && x.ref.name !== "体重")
@@ -117,8 +132,16 @@ export const MyContextProvider = (props: { children: JSXElement }) => (
   </myContext.Provider>
 );
 
-const genGrader = (male_dict: Record<number,number>[], female_dict: typeof male_dict, reverse = false) => {
-  const getGradeInDict = (val: number, dict: (typeof male_dict)[0],reverse:boolean) => {
+const genGrader = (
+  male_dict: Record<number, number>[],
+  female_dict: typeof male_dict,
+  reverse = false
+) => {
+  const getGradeInDict = (
+    val: number,
+    dict: (typeof male_dict)[0],
+    reverse: boolean
+  ) => {
     const entries = Object.entries(dict);
     if (reverse) {
       let i = 0;
@@ -136,13 +159,13 @@ const genGrader = (male_dict: Record<number,number>[], female_dict: typeof male_
     return 0;
   };
   return (val: number | undefined, gender: boolean, grade: number) => {
-    if(val === undefined) return 0;
+    if (val === undefined) return 0;
     console.log("get grade", val, gender, grade);
     return gender
-      ? getGradeInDict(val, male_dict[grade],reverse)
-      : getGradeInDict(val, female_dict[grade],reverse);
+      ? getGradeInDict(val, male_dict[grade], reverse)
+      : getGradeInDict(val, female_dict[grade], reverse);
   };
-}
+};
 
 const height_test = {
   name: "身高",
@@ -150,7 +173,7 @@ const height_test = {
   placeholder: "175",
   unit: "cm",
   weight: 0,
-  grade: (val:number | undefined,gender:boolean, grade:number) => 1.0
+  grade: (val: number | undefined, gender: boolean, grade: number) => 1.0,
 };
 const weight_test = {
   name: "体重",
@@ -158,7 +181,7 @@ const weight_test = {
   placeholder: "70",
   unit: "kg",
   weight: 0,
-  grade: (val:number | undefined,gender:boolean, grade:number) => 1.0
+  grade: (val: number | undefined, gender: boolean, grade: number) => 1.0,
 };
 const vital_test = {
   name: "肺活量",
@@ -166,7 +189,7 @@ const vital_test = {
   placeholder: "4000",
   unit: "",
   weight: 0.15,
-  grade: genGrader(maleVitalDict,femaleVitalDict)
+  grade: genGrader(maleVitalDict, femaleVitalDict),
 };
 const shortrun_test = {
   name: "50米",
@@ -174,7 +197,7 @@ const shortrun_test = {
   placeholder: "4000",
   unit: "s",
   weight: 0.2,
-  grade: genGrader(maleShortrunDict,femaleShortrunDict,true)
+  grade: genGrader(maleShortrunDict, femaleShortrunDict, true),
 };
 const stretch_test = {
   name: "坐位体前屈",
@@ -182,7 +205,7 @@ const stretch_test = {
   placeholder: "26.5",
   unit: "cm",
   weight: 0.1,
-  grade: genGrader(maleStretchDict, femaleStretchDict)
+  grade: genGrader(maleStretchDict, femaleStretchDict),
 };
 const jump_test = {
   name: "立定跳远",
@@ -190,7 +213,7 @@ const jump_test = {
   placeholder: "245",
   unit: "cm",
   weight: 0.1,
-  grade: genGrader(maleJumpDict, femaleJumpDict)
+  grade: genGrader(maleJumpDict, femaleJumpDict),
 };
 const longrun_test = {
   name: "耐力跑",
@@ -198,7 +221,7 @@ const longrun_test = {
   placeholder: "4.32",
   unit: "min",
   weight: 0.2,
-  grade: genGrader(maleLongRunDict, femaleLongRunDict,true)
+  grade: genGrader(maleLongRunDict, femaleLongRunDict, true),
 };
 
 const pullup_test = {
@@ -207,7 +230,7 @@ const pullup_test = {
   placeholder: "18",
   unit: "个",
   weight: 0.1,
-  grade: genGrader(maleSpecDict, maleSpecDict)
+  grade: genGrader(maleSpecDict, maleSpecDict),
 };
 
 const getup_test = {
@@ -216,7 +239,7 @@ const getup_test = {
   placeholder: "50",
   unit: "个",
   weight: 0.1,
-  grade: genGrader(femaleSpecDict, femaleSpecDict)
+  grade: genGrader(femaleSpecDict, femaleSpecDict),
 };
 
 const regular_tests = [

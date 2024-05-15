@@ -19,7 +19,7 @@ export const maleVitalDict = [
     85: 4550,
     90: 4800,
     95: 4920,
-    100: 5040
+    100: 5040,
   },
   {
     10: 2350,
@@ -41,8 +41,8 @@ export const maleVitalDict = [
     85: 4650,
     90: 4900,
     95: 5020,
-    100: 5140
-  }
+    100: 5140,
+  },
 ];
 
 export const femaleVitalDict = [
@@ -89,7 +89,7 @@ export const femaleVitalDict = [
     90: 3350,
     95: 3400,
     100: 3450,
-  }
+  },
 ];
 
 export const maleShortrunDict = [
@@ -136,7 +136,7 @@ export const maleShortrunDict = [
     90: 6.8,
     95: 6.7,
     100: 6.6,
-  }
+  },
 ];
 
 export const femaleShortrunDict = [
@@ -183,7 +183,7 @@ export const femaleShortrunDict = [
     90: 7.6,
     95: 7.5,
     100: 7.4,
-  }
+  },
 ];
 
 export const maleStretchDict = [
@@ -230,7 +230,7 @@ export const maleStretchDict = [
     90: 21.5,
     95: 23.3,
     100: 25.1,
-  }
+  },
 ];
 
 export const femaleStretchDict = [
@@ -277,9 +277,8 @@ export const femaleStretchDict = [
     90: 22.4,
     95: 24.4,
     100: 26.3,
-  }
+  },
 ];
-
 
 export const maleJumpDict = [
   {
@@ -372,7 +371,7 @@ export const femaleJumpDict = [
     90: 196,
     95: 202,
     100: 208,
-  }
+  },
 ];
 
 export const maleSpecDict = [
@@ -409,7 +408,7 @@ export const maleSpecDict = [
     90: 18,
     95: 19,
     100: 20,
-  }
+  },
 ];
 
 export const femaleSpecDict = [
@@ -456,7 +455,7 @@ export const femaleSpecDict = [
     90: 53,
     95: 55,
     100: 57,
-  }
+  },
 ];
 
 export const maleLongRunDict = [
@@ -503,7 +502,7 @@ export const maleLongRunDict = [
     90: 205 / 60.0,
     95: 200 / 60.0,
     100: 195 / 60.0,
-  }
+  },
 ];
 
 export const femaleLongRunDict = [
@@ -550,5 +549,5 @@ export const femaleLongRunDict = [
     90: 208 / 60.0,
     95: 202 / 60.0,
     100: 196 / 60.0,
-  }
-]
+  },
+];
