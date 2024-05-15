@@ -103,11 +103,16 @@ function initContext() {
 		reactiveRegularTests.filter((x) => x.ref.name !== "体重").map(test2result),
 	);
 
+	const pullupResult = test2result(reactivePullupTest);
+	const getupResult = test2result(reactiveGetupTest);
 	const overallResult = {
 		name: "总分",
 		getGrade: createMemo(() =>
 			Math.round(
-				testResults.reduce((acc, cur) => acc + cur.getGrade() * cur.weight, 0),
+				testResults.reduce((acc, cur) => acc + cur.getGrade() * cur.weight, 0) +
+					(gender.get()
+						? pullupResult.weight * pullupResult.getGrade()
+						: getupResult.weight * getupResult.getGrade()),
 			),
 		),
 		weight: 1,
@@ -121,8 +126,8 @@ function initContext() {
 		reactiveGetupTest,
 		reactiveHeightTest,
 		testResults,
-		pullupResult: test2result(reactivePullupTest),
-		getupResult: test2result(reactiveGetupTest),
+		pullupResult,
+		getupResult,
 		overallResult,
 	};
 }
