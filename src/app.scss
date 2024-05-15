@@ -1,32 +1,30 @@
 @use "bulma/sass/utilities/mixins";
 
-progress.show-value {
+.progress-wrapper {
   position: relative;
 }
 
-progress.show-value:after {
-  content: attr(value);
+.progress-value {
   position: absolute;
   top: 0;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   font-size: calc(1rem / 1.5);
   line-height: 1rem;
+  font-weight: bold;
 }
 
-progress.show-value.is-small:after {
+.progress.is-small+.progress-value {
   font-size: calc(0.75rem / 1.5);
   line-height: 0.75rem;
 }
 
-progress.show-value.is-medium:after {
+.progress.is-medium+.progress-value {
   font-size: calc(1.25rem / 1.5);
   line-height: 1.25rem;
 }
 
-progress.show-value.is-large:after {
+.progress.is-large+.progress-value {
   font-size: calc(1.5rem / 1.5);
   line-height: 1.5rem;
 }

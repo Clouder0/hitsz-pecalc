@@ -14,18 +14,21 @@ import { MyContextProvider, type State, myContext } from "./data";
 function ProgressBar(props: { val: Accessor<number> }) {
 	const danger = createMemo(() => props.val() < 60);
 	return (
-		<progress
-			classList={{
-				progress: true,
-				"show-value": true,
-				"is-danger": danger(),
-				"is-success": !danger(),
-			}}
-			value={props.val()}
-			max="100"
-		>
-			{props.val()}
-		</progress>
+		<div class="progress-wrapper">
+			<progress
+				classList={{
+					progress: true,
+					"show-value": true,
+					"is-danger": danger(),
+					"is-success": !danger(),
+				}}
+				value={props.val()}
+				max="100"
+			>
+				{props.val()}
+			</progress>
+			<p class="progress-value">{props.val()}</p>
+		</div>
 	);
 }
 
